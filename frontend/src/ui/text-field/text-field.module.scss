@@ -1,0 +1,112 @@
+@use '../../stylesheets/variables' as *;
+@use '../../stylesheets/mixins' as *;
+
+.textarea {
+  @include size(100%, 102px);
+  @include flex(column, space-between);
+  position: relative;
+  max-width: 296px;
+  background-color: $secondary-cultured-default;
+  border-radius: 12px;
+  box-sizing: border-box;
+  padding: 12px 12px 8px;
+  z-index: 1;
+}
+
+.textarea__input {
+  @include font('Open Sans', $xs-font-size, $normal, $primary-oxford-blue-default);
+  @include line-sizes($xl-line-height, $m-letter-space);
+  @include hide-scroll;
+  display: block;
+  height: 56px;
+  background-color: inherit;
+  padding: 0;
+  z-index: 1;
+  text-align: left;
+  overflow-y: scroll;
+  cursor: text;
+}
+
+.textarea__input::placeholder {
+  color: $grey-3;
+}
+
+.textarea__input:focus {
+  outline: none;
+}
+
+.textarea__input:focus ~ .textarea__outline {
+  @include position(absolute, 0, 0, 0, 0);
+  border: 1px solid $primary-medium-spring-green-default;
+  background-color: transparent;
+  z-index: 0;
+  border-radius: 12px;
+}
+
+.textarea__footer {
+  @include flex($justify-content: space-between, $align-items: center);
+  @include font('IBM Plex Mono', $xxs-font-size, $normal, $grey-3);
+  @include line-sizes($m-line-height, $m-letter-space);
+  z-index: 1;
+  text-align: left;
+  column-gap: 12px;
+}
+
+.textarea__counter {
+  margin: 0 auto 0 0;
+}
+
+.textarea__font {
+  @include indents;
+  @include size(24px, 24px);
+  background: none;
+  border: 0;
+  line-height: 0;
+
+  .icon{
+    @include size(100%, 100%);
+  }
+
+  &:hover {
+    cursor: $cursor;
+  }
+}
+
+.textarea__emojiPicker {
+  @include position(absolute, calc(100% + 20px), 0);
+  width: 100%;
+  box-shadow: $l-box-shadow;;
+  position: absolute;
+  z-index: 10;
+}
+
+.textarea_adaptive {
+  @extend .textarea;
+
+  @media screen and (max-width: $switching-width) {
+    height: 57px;
+    border-radius: 5.7px;
+    padding: 9px 7px 6px;
+  }
+
+  .textarea__input {
+    @media screen and (max-width: $switching-width) {
+      font-size: 7.41px;
+    }
+  }
+
+  .textarea__footer {
+    @media screen and (max-width: $switching-width) {
+      font-size: 7px;
+      letter-spacing: 0.4px;
+    }
+  }
+
+  .textarea__font {
+    @media screen and (max-width: $switching-width) {
+      @include size(9.12px, 9.12px);
+      top: 20px;
+      right: 5px;
+    }
+  }
+}
