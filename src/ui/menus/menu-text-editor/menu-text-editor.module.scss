@@ -1,0 +1,42 @@
+@use '../../../stylesheets/variables' as *;
+@use '../../../stylesheets/mixins' as *;
+
+.box {
+  @include size(144px, 40px);
+  display: none;
+  flex-direction: row;
+  box-shadow: $l-box-shadow;
+  background-color: $off-white;
+  border-radius: $s-border-radius;
+  position: absolute;
+}
+
+.active {
+  display: flex;
+}
+
+.button {
+  @include size(48px, 100%);
+  background-color: $off-white;
+  border-radius: $s-border-radius;
+  border: none;
+  border-right: 1px solid $secondary-cultured-hover;
+  cursor: $cursor;
+}
+.button:last-of-type {
+  border: none;
+}
+.button:hover {
+  background-color: $secondary-cultured-default;
+}
+
+.trash{
+  path {
+    stroke: $grey-3;
+  }
+}
+
+.icon__grey {
+  filter: invert(77%) sepia(17%) saturate(297%) hue-rotate(179deg)
+    brightness(89%) contrast(93%);
+}
