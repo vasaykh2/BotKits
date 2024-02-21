@@ -96,7 +96,7 @@ docker-compose -f docker-compose.yml --env-file .env up -d
 ## Для того чтобы увидеть документацию Swagger
 ```
 <url>:<порт на котором запущен сервер>/api/docs 
-#Пример http://127.0.0.1:3001/dev/api/docs
+#Пример http://127.0.0.1:3001/api/docs
 ```
 ***
 ## Команда backend части проекта 14 когорты
