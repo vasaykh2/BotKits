@@ -79,7 +79,7 @@ BotKits является конструктором чат ботов. Это с
 
 #### Создано в соавторстве
 
-14, 15, 16 (builder) когорт Веб-разработки+ в Мастерской Программирования Яндекс.Практикума.
+14, 15, 16 (builder) когорт.
 
 
 [Tasc-desk для страницы Botkits-bot_builder](https://github.com/users/vasaykh2/projects/1/views/1)

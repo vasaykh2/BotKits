@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mock Server</title>
+  </head>
+  <body>
+    <form id="messageForm">
+      <label for="user">From user:</label>
+      <input type="text" id="user" name="user" required />
+      <br />
+      <label for="toUser">To user:</label>
+      <input type="text" id="toUser" name="toUser" required />
+      <br />
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required></textarea>
+      <br />
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div id="messageDisplay">
+      <p><strong>User:</strong> <span id="displayedUser"></span></p>
+      <p><strong>ToUser:</strong> <span id="displayedToUser"></span></p>
+      <p><strong>Message:</strong> <span id="displayedMessage"></span></p>
+    </div>
+
+    <script src="https://cdn.socket.io/4.1.2/socket.io.min.js"></script>
+    <script>
+      // Подключение к Socket.IO серверу
+      const socket = io('http://localhost:3005');
+
+      // Прослушивание событий нового сообщения от сервера
+      socket.on('chatMessage', (msg) => {
+        // Добавление сообщения в DOM
+        const messageDisplay = document.getElementById('messageDisplay');
+        const msgElement = document.createElement('div');
+        msgElement.innerHTML = `
+          <p><strong>User:</strong> ${msg.from}</p>
+          <p><strong>ToUser:</strong> ${msg.to}</p>
+          <p><strong>Message:</strong> ${msg.message}</p>
+        `;
+        messageDisplay.appendChild(msgElement);
+      });
+
+      // Отправка сообщения на сервер
+      document
+        .getElementById('messageForm')
+        .addEventListener('submit', (event) => {
+          event.preventDefault();
+          const user = document.getElementById('user').value;
+          const message = document.getElementById('message').value;
+          const toUser = document.getElementById('toUser').value;
+
+          socket.emit('chatMessage', { user, message, toUser });
+
+          document.getElementById('user').value = '';
+          document.getElementById('message').value = '';
+          document.getElementById('toUser').value = '';
+        });
+    </script>
+  </body>
+</html>
