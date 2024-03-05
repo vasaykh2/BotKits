@@ -71,7 +71,7 @@ BotKits является конструктором чат ботов. Это с
 
 ## Макет проектной работы в Figma:
 
-- [Макет](<https://www.figma.com/file/89caTZSLaLwqYKSWH4SXLo/BOTkit-Admin-panel-(Copy-07.08.23)?type=design&node-id=26-24906&mode=design&t=5VY052C7pfGFpugE-0>)
+- [Макет](<https://www.figma.com/file/Ds9Gxpwjpq5VFMUYAzJBLC/BOTkit-Admin-panel-(Copy-11.10.2023)?type=design&node-id=1440-199297&mode=design&t=hBVf1TSFG4U1evtq-0>)
 
 ## Бриф проектной работы в notion:
 
